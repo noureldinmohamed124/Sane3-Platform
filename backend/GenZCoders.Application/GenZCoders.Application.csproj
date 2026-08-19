@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Abstractions\Security\" />
+    <Folder Include="Modules\Courses\Commands\" />
+    <Folder Include="Modules\EnrollmentApplications\Queries\" />
+    <Folder Include="Modules\Authentication\" />
+    <Folder Include="Modules\Instructors\" />
+    <Folder Include="Modules\AcademyPrograms\Commands\" />
+    <Folder Include="Modules\Users\" />
+    <Folder Include="Modules\Payments\" />
+    <Folder Include="Modules\Students\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="12.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GenZCoders.Domain\GenZCoders.Domain.csproj" />
+    <ProjectReference Include="..\GenZCoders.Shared\GenZCoders.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

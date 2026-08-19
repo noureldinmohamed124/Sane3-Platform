@@ -1,0 +1,121 @@
+############################################
+# Gen Z Coders - .NET Solution
+############################################
+
+# ===========================
+# Build Outputs
+# ===========================
+**/bin/
+**/obj/
+artifacts/
+
+# ===========================
+# User & IDE Files
+# ===========================
+.vs/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+.idea/
+
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ===========================
+# Logs
+# ===========================
+*.log
+logs/
+Log/
+
+# ===========================
+# Environment & Secrets
+# ===========================
+.env
+.env.*
+
+**/appsettings.Local.json
+
+# ===========================
+# Publish
+# ===========================
+publish/
+
+# Ignore publish profiles that contain secrets
+*.pubxml
+*.publishproj
+
+# Keep Azure publish profiles if you ever need them
+!*.azurePubxml
+
+# ===========================
+# Packages
+# ===========================
+*.nupkg
+*.snupkg
+
+# ===========================
+# Test Results
+# ===========================
+TestResults/
+coverage/
+coverage*.json
+coverage*.xml
+coverage*.info
+
+# ===========================
+# BenchmarkDotNet
+# ===========================
+BenchmarkDotNet.Artifacts/
+
+# ===========================
+# Node
+# ===========================
+node_modules/
+
+# ===========================
+# Database Files
+# ===========================
+*.mdf
+*.ldf
+*.ndf
+
+# ===========================
+# Operating System
+# ===========================
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ===========================
+# Temporary Files
+# ===========================
+*.tmp
+*.temp
+*.cache
+*.bak
+*.swp
+*~
+
+# ===========================
+# Local History
+# ===========================
+.history/
+.localhistory/
+.vshistory/
+
+# ===========================
+# Rider / ReSharper
+# ===========================
+_ReSharper*/
+*.DotSettings.user
+
+############################################
+# End
+############################################
