@@ -1,0 +1,19 @@
+:root {
+  --paper: #F5F7FB;
+  --paper-2: #E9EDF6;
+  --ink: #002561;
+  --ink-2: #013584;
+  --ink-soft: #3A4E7A;
+  --ink-faint: #8290AC;
+  --orange: #F58220;
+  --orange-dark: #C0620F;
+  --orange-light: #FFE4C7;
+  --blue-accent: #3B6FD1;
+  --line: #DCE3F1;
+  
+  --shadow-sm: 0 2px 8px rgba(0, 37, 97, 0.06);
+  --shadow-md: 0 12px 32px -12px rgba(0, 37, 97, 0.22);
+  --shadow-lg: 0 24px 60px -20px rgba(0, 37, 97, 0.3);
+  --glass-bg: rgba(255, 255, 255, 0.68);
+  --glass-border: rgba(255, 255, 255, 0.85);
+}

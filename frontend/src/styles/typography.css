@@ -1,0 +1,15 @@
+body {
+  font-family: 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.75;
+  color: var(--ink);
+}
+
+h1, h2, h3, .font-rakkas {
+  font-family: 'Rakkas', serif;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.en, .font-en {
+  font-family: 'Space Grotesk', sans-serif;
+}
