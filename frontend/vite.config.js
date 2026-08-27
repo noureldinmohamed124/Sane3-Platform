@@ -8,4 +8,14 @@ export default defineConfig({
     tailwindcss(),
     react(),
   ],
+  server: {
+    port: 5173,
+    proxy: {
+      '/api': {
+        target: 'http://sane3-temp.runasp.net',
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
 })

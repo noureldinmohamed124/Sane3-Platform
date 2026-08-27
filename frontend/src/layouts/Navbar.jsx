@@ -19,11 +19,11 @@ export default function Navbar() {
   const toggleLang = useAppStore((state) => state.toggleLang);
 
   const navLinks = [
+    { href: '#about', label: t('nav.about') },
     { href: '#method', label: t('nav.method') },
-    { href: '#tracks', label: t('nav.tracks') },
+    { href: '#programs', label: t('nav.programs') },
     { href: '#showcase', label: t('nav.showcase') },
-    { href: '#students', label: t('nav.students') },
-    { href: '#parents', label: t('nav.parents') },
+    { href: '#team', label: t('nav.team') },
   ];
 
   useEffect(() => {
@@ -79,7 +79,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav Links */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-[var(--ink-soft)]">
+        <nav className="hidden md:flex items-center gap-7 text-sm font-semibold text-[var(--ink-soft)]">
           {navLinks.map((link, idx) => (
             <a
               key={idx}

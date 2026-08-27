@@ -1,27 +1,36 @@
 import React from 'react';
 import HeroSection from '../../components/hero/HeroSection';
 import MarqueeStrip from '../../components/hero/MarqueeStrip';
-import MethodSection from '../../features/curriculum/components/MethodSection';
-import TracksSection from '../../features/curriculum/components/TracksSection';
-import ShowcaseSection from '../../features/evidence/components/ShowcaseSection';
-import WorkshopGallerySection from '../../features/students/components/WorkshopGallerySection';
-import ParentsSection from '../../features/curriculum/components/ParentsSection';
+import AboutSection from '../../components/sections/AboutSection';
+import WhatWeDoSection from '../../components/sections/WhatWeDoSection';
+import ProgramsSection from '../../components/sections/ProgramsSection';
+import ShowcaseSection from '../../components/sections/ShowcaseSection';
+import TeamSection from '../../components/sections/TeamSection';
 import TrialCtaSection from '../../components/hero/TrialCtaSection';
-import TrialBookingModal from '../../features/admissions/components/TrialBookingModal';
 
 export default function LandingRoute() {
   return (
     <>
       <HeroSection />
       <MarqueeStrip />
-      <MethodSection />
-      <TracksSection />
-      <ShowcaseSection />
-      <WorkshopGallerySection />
-      <ParentsSection />
-      <TrialCtaSection />
+      
+      {/* 1. احنا مين (Who We Are) */}
+      <AboutSection />
 
-      <TrialBookingModal />
+      {/* 2. بنعمل إيه (What We Do & 8-Stage Cycle) */}
+      <WhatWeDoSection />
+
+      {/* 3. البرامج الأكاديمية (Our Programs & Tracks) */}
+      <ProgramsSection />
+
+      {/* 4. إنجازات الطلاب (Student Showcases with Real Project Assets) */}
+      <ShowcaseSection />
+
+      {/* 5. فريق العمل والخبرات (Our Team & Mentors) */}
+      <TeamSection />
+
+      {/* Trial CTA Booking */}
+      <TrialCtaSection />
     </>
   );
 }
