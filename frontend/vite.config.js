@@ -12,7 +12,7 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/api': {
-        target: 'http://sane3-temp.runasp.net',
+        target: 'https://sane3-temp.runasp.net',
         changeOrigin: true,
         secure: false,
       },
