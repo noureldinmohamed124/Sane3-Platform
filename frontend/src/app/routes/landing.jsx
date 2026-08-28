@@ -5,7 +5,6 @@ import AboutSection from '../../components/sections/AboutSection';
 import WhatWeDoSection from '../../components/sections/WhatWeDoSection';
 import ProgramsSection from '../../components/sections/ProgramsSection';
 import ShowcaseSection from '../../components/sections/ShowcaseSection';
-import TeamSection from '../../components/sections/TeamSection';
 import TrialCtaSection from '../../components/hero/TrialCtaSection';
 
 export default function LandingRoute() {
@@ -25,9 +24,6 @@ export default function LandingRoute() {
 
       {/* 4. إنجازات الطلاب (Student Showcases with Real Project Assets) */}
       <ShowcaseSection />
-
-      {/* 5. فريق العمل والخبرات (Our Team & Mentors) */}
-      <TeamSection />
 
       {/* Trial CTA Booking */}
       <TrialCtaSection />

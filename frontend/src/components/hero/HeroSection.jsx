@@ -117,7 +117,7 @@ export default function HeroSection() {
                     {isEn ? 'Real projects built by real kids' : 'أطفال وطلاب يبنون مشاريع تكنولوجية حقيقية'}
                   </div>
                 </div>
-                <img src="/sanea-mark.png" alt={t('brand')} className="h-6 w-auto brightness-200" />
+                <img src="/sanea-mark.png" alt={t('brand')} className="h-6 w-auto brand-logo-img" />
               </div>
             </div>
           </div>

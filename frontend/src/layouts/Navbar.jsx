@@ -23,7 +23,6 @@ export default function Navbar() {
     { href: '#method', label: t('nav.method') },
     { href: '#programs', label: t('nav.programs') },
     { href: '#showcase', label: t('nav.showcase') },
-    { href: '#team', label: t('nav.team') },
   ];
 
   useEffect(() => {
@@ -69,17 +68,17 @@ export default function Navbar() {
           }}
           className="flex items-center gap-2.5 sm:gap-3 group shrink-0"
         >
-          <div className="p-1 rounded-xl bg-[var(--card-bg)] shadow-xs border border-[var(--line)] group-hover:scale-105 transition-transform">
+          <div className="p-1.5 rounded-xl bg-[var(--card-bg)] shadow-xs border border-[var(--line)] group-hover:scale-105 transition-transform flex items-center justify-center">
             <img src="/sanea-mark.png" alt={t('brand')} className="h-7 sm:h-8 w-auto brand-logo-img" />
           </div>
           <div className="flex flex-col justify-center">
-            <span className="font-rakkas text-xl sm:text-2xl text-[var(--ink)] leading-none mb-0.5 sm:mb-1">{t('brand')}</span>
+            <span className="font-extrabold text-xl sm:text-2xl text-[var(--ink)] leading-none mb-0.5 tracking-tight">{t('brand')}</span>
             <span className="text-[9px] sm:text-[10px] text-[var(--ink-faint)] font-mono tracking-wider">{t('subBrand')}</span>
           </div>
         </Link>
 
         {/* Desktop Nav Links */}
-        <nav className="hidden md:flex items-center gap-7 text-sm font-semibold text-[var(--ink-soft)]">
+        <nav className="hidden md:flex items-center gap-8 text-sm font-bold text-[var(--ink-soft)]">
           {navLinks.map((link, idx) => (
             <a
               key={idx}
@@ -116,11 +115,11 @@ export default function Navbar() {
             {theme === 'dark' ? <Sun className="w-4 h-4 text-[#FF9A3D]" /> : <Moon className="w-4 h-4 text-[#3B6FD1]" />}
           </button>
 
-          {/* CTA Button with no-wrap and mobile responsive text */}
+          {/* CTA Button */}
           <Button
             size="sm"
             onClick={() => navigate('/enrollment')}
-            className="whitespace-nowrap px-3 sm:px-4 text-xs sm:text-sm"
+            className="whitespace-nowrap px-3.5 sm:px-4 text-xs sm:text-sm font-bold shadow-md"
           >
             <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white animate-spin-slow shrink-0" />
             <span className="hidden xs:inline">{t('bookTrial')}</span>
@@ -145,14 +144,14 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden absolute top-20 right-0 left-0 bg-[var(--card-bg)]/95 backdrop-blur-xl border-b border-[var(--line)] px-6 py-5 space-y-4 shadow-xl"
+            className="md:hidden absolute top-20 right-0 left-0 bg-[var(--card-bg)]/98 backdrop-blur-xl border-b border-[var(--line)] px-6 py-5 space-y-4 shadow-xl"
           >
             {navLinks.map((link, idx) => (
               <a
                 key={idx}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="block py-2.5 text-base font-semibold text-[var(--ink)] hover:text-[var(--orange)] transition-colors border-b border-[var(--line)]"
+                className="block py-2.5 text-base font-bold text-[var(--ink)] hover:text-[var(--orange)] transition-colors border-b border-[var(--line)]"
               >
                 {link.label}
               </a>
@@ -164,7 +163,7 @@ export default function Navbar() {
                   setMobileMenuOpen(false);
                   navigate('/enrollment');
                 }}
-                className="w-full justify-center py-3 text-base"
+                className="w-full justify-center py-3 text-base font-bold shadow-md"
               >
                 <Sparkles className="w-4 h-4 text-white" />
                 <span>{t('bookFreeTrial')}</span>

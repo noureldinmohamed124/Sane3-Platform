@@ -26,11 +26,11 @@ export default function Footer() {
             className="flex items-center gap-3 cursor-pointer group w-fit"
             title="الانتقال لأعلى الصفحة"
           >
-            <div className="p-1.5 rounded-xl bg-white/10 border border-white/20 group-hover:scale-105 transition-transform">
-              <img src="/sanea-mark.png" alt={t('brand')} className="h-8 w-auto brightness-200" />
+            <div className="p-1.5 rounded-xl bg-white/10 border border-white/20 group-hover:scale-105 transition-transform flex items-center justify-center">
+              <img src="/sanea-mark.png" alt={t('brand')} className="h-8 w-auto brand-logo-img" />
             </div>
             <div className="flex flex-col">
-              <span className="font-rakkas text-2xl text-white">{t('brand')}</span>
+              <span className="font-extrabold text-2xl text-white tracking-tight">{t('brand')}</span>
               <span className="text-[10px] text-[#8290AC] font-mono tracking-wider">{t('subBrand')}</span>
             </div>
           </div>
@@ -48,7 +48,7 @@ export default function Footer() {
         {/* Col 2: Navigation Links */}
         <div className="space-y-3">
           <h4 className="text-xs font-bold uppercase tracking-wider text-[#8290AC] font-en">NAVIGATION</h4>
-          <ul className="space-y-2 text-sm text-[#C9D4EE]">
+          <ul className="space-y-2 text-sm text-[#C9D4EE] font-semibold">
             {NAV_LINKS.map((link, idx) => (
               <li key={idx}>
                 <a
@@ -66,12 +66,11 @@ export default function Footer() {
         {/* Col 3: Programs */}
         <div className="space-y-3">
           <h4 className="text-xs font-bold uppercase tracking-wider text-[#8290AC] font-en">PROGRAMS</h4>
-          <ul className="space-y-2 text-sm text-[#C9D4EE]">
-            <li><a href="#tracks" onClick={(e) => handleNavClick(e, '#tracks')} className="hover:text-[#F58220] transition-colors">{isEn ? 'Software Track' : 'مسار البرمجة (Software)'}</a></li>
-            <li><a href="#tracks" onClick={(e) => handleNavClick(e, '#tracks')} className="hover:text-[#F58220] transition-colors">{isEn ? 'Embedded Systems Track' : 'مسار الأنظمة المدمجة (Embedded/IoT)'}</a></li>
-            <li><a href="#tracks" onClick={(e) => handleNavClick(e, '#tracks')} className="hover:text-[#F58220] transition-colors">{isEn ? 'Robotics Track' : 'مسار الروبوتيكس (Robotics)'}</a></li>
-            <li><a href="#tracks" onClick={(e) => handleNavClick(e, '#tracks')} className="hover:text-[#F58220] transition-colors">{isEn ? 'AI Track' : 'مسار الذكاء الاصطناعي (AI)'}</a></li>
-            <li><a href="#tracks" onClick={(e) => handleNavClick(e, '#tracks')} className="hover:text-[#F58220] transition-colors">{isEn ? 'Explorer Track' : 'مسار الاستكشاف (Explorer)'}</a></li>
+          <ul className="space-y-2 text-sm text-[#C9D4EE] font-semibold">
+            <li><a href="#programs" onClick={(e) => handleNavClick(e, '#programs')} className="hover:text-[#F58220] transition-colors">{isEn ? 'Young Makers Track (8-12)' : 'المبدعون الصغار (٨-١٢ سنة)'}</a></li>
+            <li><a href="#programs" onClick={(e) => handleNavClick(e, '#programs')} className="hover:text-[#F58220] transition-colors">{isEn ? 'Web Wizards Track (12-18)' : 'سحرة الويب (١٢-١٨ سنة)'}</a></li>
+            <li><a href="#programs" onClick={(e) => handleNavClick(e, '#programs')} className="hover:text-[#F58220] transition-colors">{isEn ? 'Tech Makers Track (14-18)' : 'صُنّاع التكنولوجيا (١٤-١٨ سنة)'}</a></li>
+            <li><a href="#programs" onClick={(e) => handleNavClick(e, '#programs')} className="hover:text-[#F58220] transition-colors">{isEn ? 'AI Builders Track (12-18)' : 'بُناة الذكاء الاصطناعي (١٢-١٨ سنة)'}</a></li>
           </ul>
         </div>
 

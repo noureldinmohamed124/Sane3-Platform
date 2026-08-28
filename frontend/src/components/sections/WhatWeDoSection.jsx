@@ -19,7 +19,7 @@ export default function WhatWeDoSection() {
             <span>{isEn ? 'WHAT WE DO' : 'بنعمل إيه؟'}</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-rakkas text-[var(--ink)] leading-tight">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-[var(--ink)] leading-tight tracking-tight">
             {isEn ? (
               <>
                 Concepts are named only after <br />
@@ -42,7 +42,7 @@ export default function WhatWeDoSection() {
 
         {/* Real Lab Visual + 8-Stage Learning Cycle Split */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Workshop Action Photo (WebP with lazy loading) */}
+          {/* Workshop Action Photo (WebP with high contrast badge & title) */}
           <div className="lg:col-span-5 rounded-3xl overflow-hidden shadow-2xl border border-[var(--line)] relative group h-[380px] sm:h-[480px] bg-[var(--card-bg)]">
             <picture>
               <source srcSet="/images/workshops/workshop-5.webp" type="image/webp" />
@@ -51,17 +51,17 @@ export default function WhatWeDoSection() {
                 alt="Hands-on workshop activity"
                 loading="lazy"
                 decoding="async"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
               />
             </picture>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none" />
-            <div className="absolute bottom-6 left-6 right-6 text-white space-y-1 pointer-events-none">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--blue-accent)] text-xs font-bold text-white mb-1">
-                <Wrench className="w-3.5 h-3.5" />
-                {isEn ? 'Inside the Maker Lab' : 'من داخل مختبرات صانع'}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" />
+            <div className="absolute bottom-6 left-6 right-6 text-white space-y-2 pointer-events-none">
+              <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[var(--orange)] text-xs font-extrabold text-white mb-1 shadow-lg">
+                <Wrench className="w-4 h-4" />
+                <span>{isEn ? 'Inside the Maker Lab' : 'من داخل مختبرات صانع'}</span>
               </div>
-              <h4 className="text-base sm:text-lg font-bold">
-                {isEn ? 'Hardware Testing & Circuit Iterations' : 'بناء واختبار الدوائر الإلكترونية والبرمجة الحية'}
+              <h4 className="text-base sm:text-lg font-extrabold text-white drop-shadow-lg leading-snug">
+                {isEn ? 'Hardware Testing & Live Programming' : 'بناء واختبار الدوائر الإلكترونية والبرمجة الحية'}
               </h4>
             </div>
           </div>
@@ -102,7 +102,7 @@ export default function WhatWeDoSection() {
               <Sparkles className="w-3.5 h-3.5" />
               <span>THE 7 CRITICAL QUESTIONS</span>
             </div>
-            <h3 className="text-xl sm:text-2xl font-bold text-[var(--ink)]">
+            <h3 className="text-xl sm:text-2xl font-extrabold text-[var(--ink)]">
               {isEn ? 'Questions Every Sanea Student Can Confidently Answer' : 'أسئلة يجيب عنها طالب صانع بثقة في كل حصة'}
             </h3>
           </div>
@@ -120,7 +120,7 @@ export default function WhatWeDoSection() {
                 <span className="w-5 h-5 rounded-full bg-[var(--orange-light)] text-[var(--orange)] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
                   ✓
                 </span>
-                <span className="font-semibold text-[var(--ink)]">
+                <span className="font-bold text-[var(--ink)]">
                   {isEn ? item.qEn : item.q}
                 </span>
               </div>

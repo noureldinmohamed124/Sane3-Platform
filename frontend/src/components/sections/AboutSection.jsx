@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { GRADUATE_PILLARS, IDENTITY_ARC_STAGES } from '../../constants/landingData';
-import { Sparkles, ArrowRight, ArrowLeft, ShieldCheck, Target, Award, Compass, Users } from 'lucide-react';
+import { Compass, Users, Target, Award, ArrowRight, ArrowLeft } from 'lucide-react';
 
 export default function AboutSection() {
   const { t, i18n } = useTranslation();
@@ -20,7 +20,7 @@ export default function AboutSection() {
             <span>{isEn ? 'WHO WE ARE' : 'احنا مين؟'}</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-rakkas text-[var(--ink)] leading-tight">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-[var(--ink)] leading-tight tracking-tight">
             {isEn ? (
               <>
                 Not just another coding academy. <br />
@@ -41,33 +41,33 @@ export default function AboutSection() {
           </p>
         </div>
 
-        {/* Visual Lab Showcase Split (Optimized WebP images with lazy loading) */}
+        {/* Visual Lab Showcase Split (Vertical Portrait Image Layout) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Main Lab Image */}
+          {/* Main Lab Image (Portrait Vertical Mode) */}
           <motion.div
             whileHover={{ scale: 1.01 }}
-            className="lg:col-span-7 rounded-3xl overflow-hidden shadow-2xl border border-[var(--line)] relative group h-[340px] sm:h-[420px] bg-[var(--paper-2)]"
+            className="lg:col-span-7 rounded-3xl overflow-hidden shadow-2xl border border-[var(--line)] relative group h-[420px] sm:h-[480px] bg-[var(--paper-2)]"
           >
             <picture>
               <source srcSet="/images/IMG_9925.webp" type="image/webp" />
               <img
                 src="/images/IMG_9925.jpg"
-                alt="Sanea Lab Activity"
+                alt="Sanea Collaborative Engineering Lab"
                 loading="lazy"
                 decoding="async"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 onError={(e) => {
                   e.currentTarget.src = '/images/workshops/workshop-1.webp';
                 }}
               />
             </picture>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" />
-            <div className="absolute bottom-6 left-6 right-6 text-white space-y-1 pointer-events-none">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--orange)] text-xs font-bold text-white mb-1">
-                <Users className="w-3.5 h-3.5" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent pointer-events-none" />
+            <div className="absolute bottom-6 left-6 right-6 text-white space-y-2 pointer-events-none">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[var(--orange)] text-xs font-extrabold text-white mb-1 shadow-md">
+                <Users className="w-4 h-4" />
                 {isEn ? 'Collaborative Engineering' : 'بناء جماعي وتعاون هندسي'}
               </div>
-              <h4 className="text-lg sm:text-xl font-bold">
+              <h4 className="text-lg sm:text-xl font-extrabold text-white drop-shadow-md">
                 {isEn ? 'Mentored Sessions on Real Hardware & Code' : 'توجيه هندسي وتطبيق مباشر على الأجهزة والكود'}
               </h4>
             </div>
@@ -77,7 +77,7 @@ export default function AboutSection() {
           <div className="lg:col-span-5 space-y-4">
             <motion.div
               whileHover={{ scale: 1.02 }}
-              className="h-[195px] rounded-3xl overflow-hidden shadow-lg border border-[var(--line)] relative group bg-[var(--paper-2)]"
+              className="h-[200px] sm:h-[230px] rounded-3xl overflow-hidden shadow-lg border border-[var(--line)] relative group bg-[var(--paper-2)]"
             >
               <picture>
                 <source srcSet="/images/workshops/workshop-3.webp" type="image/webp" />
@@ -89,15 +89,20 @@ export default function AboutSection() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </picture>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
-              <div className="absolute bottom-3 left-4 right-4 text-white text-xs font-bold pointer-events-none">
-                {isEn ? 'Hardware Circuits & Sensor Wiring' : 'توصيل الحساسات وبرمجة الدوائر الإلكترونية'}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none" />
+              <div className="absolute bottom-4 left-4 right-4 text-white space-y-1 pointer-events-none">
+                <div className="inline-flex items-center gap-1 text-[var(--orange)] font-extrabold text-xs">
+                  <span>●</span> {isEn ? 'Electronics Lab' : 'معمل الإلكترونيات'}
+                </div>
+                <div className="text-sm font-bold text-white drop-shadow-md">
+                  {isEn ? 'Hardware Circuits & Sensor Wiring' : 'توصيل الحساسات وبرمجة الدوائر الإلكترونية'}
+                </div>
               </div>
             </motion.div>
 
             <motion.div
               whileHover={{ scale: 1.02 }}
-              className="h-[195px] rounded-3xl overflow-hidden shadow-lg border border-[var(--line)] relative group bg-[var(--paper-2)]"
+              className="h-[200px] sm:h-[230px] rounded-3xl overflow-hidden shadow-lg border border-[var(--line)] relative group bg-[var(--paper-2)]"
             >
               <picture>
                 <source srcSet="/images/workshops/workshop-4.webp" type="image/webp" />
@@ -109,9 +114,14 @@ export default function AboutSection() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </picture>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
-              <div className="absolute bottom-3 left-4 right-4 text-white text-xs font-bold pointer-events-none">
-                {isEn ? 'Problem Solving & Algorithmic Challenges' : 'تحديات التفكير الخوارزمي وحل المشكلات'}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none" />
+              <div className="absolute bottom-4 left-4 right-4 text-white space-y-1 pointer-events-none">
+                <div className="inline-flex items-center gap-1 text-[var(--orange)] font-extrabold text-xs">
+                  <span>●</span> {isEn ? 'Algorithms Challenge' : 'تحديات الخوارزميات'}
+                </div>
+                <div className="text-sm font-bold text-white drop-shadow-md">
+                  {isEn ? 'Problem Solving & Algorithmic Challenges' : 'تحديات التفكير الخوارزمي وحل المشكلات'}
+                </div>
               </div>
             </motion.div>
           </div>
@@ -127,7 +137,7 @@ export default function AboutSection() {
                 <Target className="w-3.5 h-3.5" />
                 <span>{isEn ? 'CORE PRINCIPLE' : 'جوهر فلسفة صانع'}</span>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-bold text-[var(--ink)]">
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-[var(--ink)]">
                 {isEn ? 'Capability Over Completion' : 'القدرة قبل الإكمال'}
               </h3>
               <p className="text-sm sm:text-base text-[var(--ink-soft)] leading-relaxed">
@@ -139,19 +149,19 @@ export default function AboutSection() {
 
             <div className="lg:col-span-5 grid grid-cols-2 gap-3 sm:gap-4">
               <div className="p-4 sm:p-5 rounded-2xl bg-[var(--paper-2)] border border-[var(--line)] space-y-1 text-center">
-                <div className="text-2xl sm:text-3xl font-bold font-en text-[var(--orange)]">100%</div>
+                <div className="text-2xl sm:text-3xl font-extrabold font-en text-[var(--orange)]">100%</div>
                 <div className="text-xs font-bold text-[var(--ink)]">{isEn ? 'Hands-on Builds' : 'بناء عملي ومشاريع'}</div>
               </div>
               <div className="p-4 sm:p-5 rounded-2xl bg-[var(--paper-2)] border border-[var(--line)] space-y-1 text-center">
-                <div className="text-2xl sm:text-3xl font-bold font-en text-[var(--blue-accent)]">7</div>
-                <div className="text-xs font-bold text-[var(--ink)]">{isEn ? 'Identity Stages' : 'مراحل في قوس الهوية'}</div>
+                <div className="text-2xl sm:text-3xl font-extrabold font-en text-[var(--blue-accent)]">7</div>
+                <div className="text-xs font-bold text-[var(--ink)]">{isEn ? 'Identity Stages' : 'مراحل في مسار الهوية'}</div>
               </div>
               <div className="p-4 sm:p-5 rounded-2xl bg-[var(--paper-2)] border border-[var(--line)] space-y-1 text-center">
-                <div className="text-2xl sm:text-3xl font-bold font-en text-[var(--orange-dark)]">4</div>
+                <div className="text-2xl sm:text-3xl font-extrabold font-en text-[var(--orange-dark)]">4</div>
                 <div className="text-xs font-bold text-[var(--ink)]">{isEn ? 'Graduate Pillars' : 'أركان تخريج الصانع'}</div>
               </div>
               <div className="p-4 sm:p-5 rounded-2xl bg-[var(--paper-2)] border border-[var(--line)] space-y-1 text-center">
-                <div className="text-2xl sm:text-3xl font-bold font-en text-green-600">0%</div>
+                <div className="text-2xl sm:text-3xl font-extrabold font-en text-green-600">0%</div>
                 <div className="text-xs font-bold text-[var(--ink)]">{isEn ? 'Passive Watching' : 'تلقين نظري بحت'}</div>
               </div>
             </div>
@@ -162,7 +172,7 @@ export default function AboutSection() {
         {/* 4 Pillars of a Sanea Graduate */}
         <div className="space-y-6">
           <div className="text-center space-y-2">
-            <h3 className="text-2xl sm:text-3xl font-bold text-[var(--ink)]">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-[var(--ink)]">
               {isEn ? 'The 4 Pillars of Every Sanea Graduate' : 'الأركان الأربعة لخريج صانع'}
             </h3>
             <p className="text-xs sm:text-sm text-[var(--ink-faint)]">
@@ -198,14 +208,14 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* The 7 Identity Arc Stages */}
+        {/* The 7 Identity Path Stages */}
         <div className="p-8 sm:p-10 rounded-3xl bg-[var(--paper-2)] border border-[var(--line)] space-y-6">
           <div className="text-center space-y-2 max-w-2xl mx-auto">
             <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[var(--blue-accent)]">
               <Award className="w-4 h-4" />
-              <span>{isEn ? 'THE IDENTITY ARC' : 'قوس الهوية الهندسية'}</span>
+              <span>{isEn ? 'THE IDENTITY PATH' : 'مسار بناء وتطور الهوية الهندسية'}</span>
             </div>
-            <h3 className="text-xl sm:text-2xl font-bold text-[var(--ink)]">
+            <h3 className="text-xl sm:text-2xl font-extrabold text-[var(--ink)]">
               {isEn ? 'How a Student Evolves at Sanea' : 'تطور هوية وشخصية الطالب في صانع'}
             </h3>
           </div>

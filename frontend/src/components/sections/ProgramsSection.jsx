@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router';
 import { motion } from 'framer-motion';
 import { useAcademyProgramsQuery } from '../../features/curriculum/useProgramsQuery';
 import { Button } from '../ui/button';
-import { Sparkles, Calendar, Layers, CheckCircle2, ArrowRight, ArrowLeft, BookOpen } from 'lucide-react';
+import { Calendar, Layers, CheckCircle2, ArrowRight, ArrowLeft, BookOpen } from 'lucide-react';
 
 export default function ProgramsSection() {
   const { t, i18n } = useTranslation();
@@ -25,32 +25,32 @@ export default function ProgramsSection() {
             <span>{isEn ? 'ACADEMY PROGRAMS' : 'البرامج الأكاديمية'}</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-rakkas text-[var(--ink)] leading-tight">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-[var(--ink)] leading-tight tracking-tight">
             {isEn ? (
               <>
                 Programs Built for Capability, <br />
-                <span className="text-[var(--orange)]">Tailored for Every Age Bracket.</span>
+                <span className="text-[var(--orange)]">Tailored for Ages 8 to 18.</span>
               </>
             ) : (
               <>
                 برامج مبنية على القدرة الحقيقية، <br />
-                <span className="text-[var(--orange)]">ومصممة لتناسب كل مرحلة عمرية.</span>
+                <span className="text-[var(--orange)]">ومصممة للناشئين والشباب من ٨ إلى ١٨ سنة.</span>
               </>
             )}
           </h2>
 
           <p className="text-base sm:text-lg text-[var(--ink-soft)] leading-relaxed">
             {isEn
-              ? 'From young junior makers to aspiring software engineers, explore our structured semester pathways and enroll today.'
-              : 'من سن ٨ سنوات وحتى طلاب الجامعات والخريجين، استكشف البرامج والسمسترز الأكاديمية المصممة لنقلك إلى مستوى الاحتراف.'}
+              ? 'From junior makers to advanced software & IoT builders, explore our structured semester pathways and enroll today.'
+              : 'من سن ٨ إلى ١٨ سنة، استكشف البرامج والسمسترز الأكاديمية المصممة لنقلك إلى مستوى الصانع المحترف.'}
           </p>
         </div>
 
-        {/* Programs Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Programs Grid (Clean, Card Layout without photo headers) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {programs.map((prog) => {
             const ageMin = prog.ageMin || prog.ageFrom || 8;
-            const ageMax = prog.ageMax || prog.ageTo || 40;
+            const ageMax = prog.ageMax || prog.ageTo || 18;
 
             return (
               <motion.div
@@ -67,22 +67,22 @@ export default function ProgramsSection() {
                     </span>
                     <span className="inline-flex items-center gap-1 text-xs font-bold text-[var(--ink-faint)]">
                       <Layers className="w-3.5 h-3.5" />
-                      {prog.semestersCount || prog.SemestersCount || prog.coursesCount || 2} {isEn ? 'Semesters' : 'سمسترز'}
+                      {prog.semestersCount || prog.SemestersCount || prog.coursesCount || 3} {isEn ? 'Semesters' : 'سمسترز'}
                     </span>
                   </div>
 
                   {/* Title and Description */}
                   <div className="space-y-2">
-                    <h3 className="text-xl sm:text-2xl font-bold text-[var(--ink)]">
+                    <h3 className="text-xl sm:text-2xl font-extrabold text-[var(--ink)] tracking-tight">
                       {isEn ? prog.name : (prog.nameAr || prog.name)}
                     </h3>
-                    <p className="text-xs sm:text-sm text-[var(--ink-soft)] leading-relaxed min-h-[2.5rem]">
+                    <p className="text-xs sm:text-sm text-[var(--ink-soft)] leading-relaxed min-h-[3rem]">
                       {prog.description || (isEn ? 'Hands-on practical academy curriculum designed to build technical capability through real project builds.' : 'منهج تطبيقي عملي يهدف إلى بناء القدرة الهندسية والبرمجية وصناعة مشاريع متكاملة.')}
                     </p>
                   </div>
 
                   {/* Feature Highlights */}
-                  <div className="space-y-2 pt-3 border-t border-[var(--line)] text-xs text-[var(--ink)]">
+                  <div className="space-y-2.5 pt-4 border-t border-[var(--line)] text-xs text-[var(--ink)]">
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[var(--orange)] shrink-0" />
                       <span>{isEn ? 'Need-First Learning Cycle per Session' : 'دورة تعلم قائمة على حل المشكلات'}</span>
@@ -102,7 +102,7 @@ export default function ProgramsSection() {
                 <div className="pt-4 border-t border-[var(--line)]">
                   <Button
                     onClick={() => navigate('/enrollment', { state: { program: prog } })}
-                    className="w-full justify-center text-sm py-2.5 shadow-md"
+                    className="w-full justify-center text-sm py-2.5 font-bold shadow-md"
                   >
                     <span>{isEn ? 'Enroll in Program' : 'سجّل في البرنامج'}</span>
                     <Arrow className="w-4 h-4" />
