@@ -27,7 +27,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 15);
+      setScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -48,7 +48,14 @@ export default function Navbar() {
       const targetId = href.replace('#', '');
       const targetElement = document.getElementById(targetId) || document.querySelector(href);
       if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
+        // Adjust for fixed navbar height (80px)
+        const headerOffset = 80;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
       } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
@@ -58,10 +65,10 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 h-16 sm:h-20 flex items-center transition-all duration-300 w-full max-w-full ${
+        className={`fixed top-0 left-0 right-0 z-50 h-16 sm:h-20 flex items-center transition-all duration-300 w-full ${
           scrolled
-            ? 'bg-[var(--paper)]/95 backdrop-blur-xl border-b border-[var(--line)] shadow-xs'
-            : 'bg-transparent'
+            ? 'bg-[var(--paper)]/95 backdrop-blur-xl border-b border-[var(--line)] shadow-md'
+            : 'bg-[var(--paper)]/85 backdrop-blur-md border-b border-[var(--line)]/50'
         }`}
       >
         <div className="max-w-6xl mx-auto px-3 sm:px-6 w-full flex items-center justify-between gap-2">
