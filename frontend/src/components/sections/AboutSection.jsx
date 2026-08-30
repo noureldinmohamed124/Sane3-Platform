@@ -1,7 +1,28 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 import { GRADUATE_PILLARS, IDENTITY_ARC_STAGES } from '../../constants/landingData';
 import { Compass, Users, Target, Award, ArrowRight, ArrowLeft } from 'lucide-react';
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1.0] },
+  },
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1,
+    },
+  },
+};
 
 export default function AboutSection() {
   const { t, i18n } = useTranslation();
@@ -12,8 +33,14 @@ export default function AboutSection() {
     <section id="about" className="py-10 sm:py-24 px-4 sm:px-6 relative z-10 overflow-hidden">
       <div className="max-w-6xl mx-auto space-y-10 sm:space-y-16">
         
-        {/* Header Title */}
-        <div className="text-center space-y-3 sm:space-y-4 max-w-3xl mx-auto">
+        {/* Header Title with smooth fade-in */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          variants={fadeInUp}
+          className="text-center space-y-3 sm:space-y-4 max-w-3xl mx-auto"
+        >
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[var(--orange-light)] text-[var(--orange)] text-xs font-bold font-en uppercase tracking-wider border border-[var(--orange)]/30">
             <Compass className="w-3.5 h-3.5" />
             <span>{isEn ? 'WHO WE ARE' : 'احنا مين؟'}</span>
@@ -38,12 +65,19 @@ export default function AboutSection() {
               ? 'At Sanea, our mission is to transform young people from passive technology consumers into active, capable creators who can take an idea from napkin sketch to a working, shippable product.'
               : 'في صانع، هدفنا تحويل الطلاب من مستهلكين سلبيين للتكنولوجيا إلى صناع قادرين على أخذ الفكرة من مجرد رسم على ورقة إلى منتج تكنولوجي شغال ومختبر.'}
           </p>
-        </div>
+        </motion.div>
 
         {/* Visual Lab Showcase Split */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 items-center">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          variants={staggerContainer}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 items-center"
+        >
           {/* Main Lab Image */}
-          <div
+          <motion.div
+            variants={fadeInUp}
             className="lg:col-span-7 rounded-3xl overflow-hidden shadow-xl border border-[var(--line)] relative group h-[300px] sm:h-[460px] bg-[var(--paper-2)]"
           >
             <picture>
@@ -69,10 +103,10 @@ export default function AboutSection() {
                 {isEn ? 'Mentored Sessions on Real Hardware & Code' : 'توجيه هندسي وتطبيق مباشر على الأجهزة والكود'}
               </h4>
             </div>
-          </div>
+          </motion.div>
 
           {/* Secondary Stack of Workshop Moments */}
-          <div className="lg:col-span-5 grid grid-cols-2 lg:grid-cols-1 gap-3 sm:gap-4">
+          <motion.div variants={fadeInUp} className="lg:col-span-5 grid grid-cols-2 lg:grid-cols-1 gap-3 sm:gap-4">
             <div
               className="h-[140px] sm:h-[215px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-md border border-[var(--line)] relative group bg-[var(--paper-2)]"
             >
@@ -114,11 +148,17 @@ export default function AboutSection() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Core Philosophy Banner */}
-        <div className="p-5 sm:p-10 rounded-3xl bg-[var(--card-bg)]/90 backdrop-blur-xl border border-[var(--line)] shadow-lg relative overflow-hidden">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          variants={fadeInUp}
+          className="p-5 sm:p-10 rounded-3xl bg-[var(--card-bg)]/90 backdrop-blur-xl border border-[var(--line)] shadow-lg relative overflow-hidden"
+        >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
             
             <div className="lg:col-span-7 space-y-2.5 sm:space-y-4">
@@ -156,10 +196,16 @@ export default function AboutSection() {
             </div>
 
           </div>
-        </div>
+        </motion.div>
 
-        {/* 4 Pillars of a Sanea Graduate (2-column on mobile) */}
-        <div className="space-y-4 sm:space-y-6">
+        {/* 4 Pillars of a Sanea Graduate */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          variants={staggerContainer}
+          className="space-y-4 sm:space-y-6"
+        >
           <div className="text-center space-y-1.5">
             <h3 className="text-xl sm:text-3xl font-extrabold text-[var(--ink)]">
               {isEn ? 'The 4 Pillars of Every Sanea Graduate' : 'الأركان الأربعة لخريج صانع'}
@@ -173,9 +219,10 @@ export default function AboutSection() {
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
             {GRADUATE_PILLARS.map((pillar, idx) => (
-              <div
+              <motion.div
                 key={idx}
-                className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-[var(--card-bg)] border border-[var(--line)] shadow-sm space-y-2 sm:space-y-3"
+                variants={fadeInUp}
+                className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-[var(--card-bg)] border border-[var(--line)] shadow-sm space-y-2 sm:space-y-3 hover:border-[var(--orange)]/60 transition-colors"
               >
                 <div className="flex items-center justify-between">
                   <span className="text-2xl sm:text-3xl">{pillar.icon}</span>
@@ -191,13 +238,19 @@ export default function AboutSection() {
                     {isEn ? pillar.subEn : pillar.sub}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* The 7 Identity Path Stages */}
-        <div className="p-5 sm:p-8 rounded-3xl bg-[var(--paper-2)] border border-[var(--line)] space-y-4">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          variants={fadeInUp}
+          className="p-5 sm:p-8 rounded-3xl bg-[var(--paper-2)] border border-[var(--line)] space-y-4"
+        >
           <div className="text-center space-y-1 max-w-2xl mx-auto">
             <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[var(--blue-accent)]">
               <Award className="w-4 h-4" />
@@ -212,7 +265,7 @@ export default function AboutSection() {
             {IDENTITY_ARC_STAGES.map((stg) => (
               <div
                 key={stg.id}
-                className="p-3 rounded-2xl bg-[var(--card-bg)] border border-[var(--line)] text-center space-y-1 shadow-2xs"
+                className="p-3 rounded-2xl bg-[var(--card-bg)] border border-[var(--line)] text-center space-y-1 shadow-2xs hover:border-[var(--orange)] transition-colors"
               >
                 <div className="w-5 h-5 rounded-full bg-[var(--orange-light)]/60 text-[var(--orange)] font-mono text-[11px] font-bold flex items-center justify-center mx-auto">
                   {stg.id}
@@ -226,7 +279,7 @@ export default function AboutSection() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>

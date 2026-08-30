@@ -1,18 +1,45 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 import { SHOWCASE_PROJECTS } from '../../constants/landingData';
 import { Trophy, User, ShieldCheck } from 'lucide-react';
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1.0] },
+  },
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1,
+    },
+  },
+};
 
 export default function ShowcaseSection() {
   const { t, i18n } = useTranslation();
   const isEn = i18n.language === 'en';
 
   return (
-    <section id="showcase" className="py-10 sm:py-24 px-4 sm:px-6 relative z-10 bg-[var(--paper-2)]/50 border-y border-[var(--line)]">
+    <section id="showcase" className="py-10 sm:py-24 px-4 sm:px-6 relative z-10 bg-[var(--paper-2)]/50 border-y border-[var(--line)] overflow-hidden">
       <div className="max-w-6xl mx-auto space-y-10 sm:space-y-16">
         
         {/* Header Title */}
-        <div className="text-center space-y-3 sm:space-y-4 max-w-3xl mx-auto">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          variants={fadeInUp}
+          className="text-center space-y-3 sm:space-y-4 max-w-3xl mx-auto"
+        >
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[var(--orange-light)] text-[var(--orange)] text-xs font-bold font-en uppercase tracking-wider border border-[var(--orange)]/30">
             <Trophy className="w-3.5 h-3.5" />
             <span>{isEn ? 'STUDENT SHOWCASE' : 'إنجازات ومشاريع الطلاب'}</span>
@@ -37,16 +64,23 @@ export default function ShowcaseSection() {
               ? 'Every project started with a student asking "What problem do I need to solve?" and ended with a fully functional hardware or software prototype.'
               : 'كل مشروع بدأ بسؤال حقيقي: "إيه المشكلة اللي محتاجين نحلها؟" وانتهى بمنتج تكنولوجي متكامل موثق في جواز سفر الطالب.'}
           </p>
-        </div>
+        </motion.div>
 
         {/* Showcase Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          variants={staggerContainer}
+          className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8"
+        >
           {SHOWCASE_PROJECTS.map((proj) => {
             const webpSrc = proj.image.replace(/\.(jpeg|jpg|png)$/i, '.webp');
             return (
-              <div
+              <motion.div
                 key={proj.id}
-                className="rounded-3xl bg-[var(--card-bg)] border border-[var(--line)] shadow-lg overflow-hidden flex flex-col justify-between group hover:border-[var(--orange)]/60 transition-all"
+                variants={fadeInUp}
+                className="rounded-3xl bg-[var(--card-bg)] border border-[var(--line)] shadow-lg overflow-hidden flex flex-col justify-between group hover:border-[var(--orange)]/60 transition-all hover:shadow-xl"
               >
                 {/* Project Image Box */}
                 <div className="h-44 sm:h-64 w-full overflow-hidden relative bg-[var(--paper-2)]">
@@ -107,10 +141,10 @@ export default function ShowcaseSection() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
 
       </div>
     </section>

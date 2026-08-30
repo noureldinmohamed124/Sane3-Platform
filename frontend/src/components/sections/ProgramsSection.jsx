@@ -1,9 +1,30 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
+import { motion } from 'framer-motion';
 import { useAcademyProgramsQuery } from '../../features/curriculum/useProgramsQuery';
 import { Button } from '../ui/button';
 import { Calendar, Layers, CheckCircle2, ArrowRight, ArrowLeft, BookOpen } from 'lucide-react';
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1.0] },
+  },
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1,
+    },
+  },
+};
 
 export default function ProgramsSection() {
   const { t, i18n } = useTranslation();
@@ -14,11 +35,17 @@ export default function ProgramsSection() {
   const { data: programs = [] } = useAcademyProgramsQuery();
 
   return (
-    <section id="programs" className="py-10 sm:py-24 px-4 sm:px-6 relative z-10">
+    <section id="programs" className="py-10 sm:py-24 px-4 sm:px-6 relative z-10 overflow-hidden">
       <div className="max-w-6xl mx-auto space-y-10 sm:space-y-16">
         
         {/* Header Title */}
-        <div className="text-center space-y-3 sm:space-y-4 max-w-3xl mx-auto">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          variants={fadeInUp}
+          className="text-center space-y-3 sm:space-y-4 max-w-3xl mx-auto"
+        >
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[var(--orange-light)] text-[var(--orange)] text-xs font-bold font-en uppercase tracking-wider border border-[var(--orange)]/30">
             <BookOpen className="w-3.5 h-3.5" />
             <span>{isEn ? 'ACADEMY PROGRAMS' : 'البرامج الأكاديمية'}</span>
@@ -43,18 +70,25 @@ export default function ProgramsSection() {
               ? 'From junior makers to advanced software & IoT builders, explore our structured semester pathways and enroll today.'
               : 'من سن ٨ إلى ١٨ سنة، استكشف البرامج والسمسترز الأكاديمية المصممة لنقلك إلى مستوى الصانع المحترف.'}
           </p>
-        </div>
+        </motion.div>
 
         {/* Programs Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          variants={staggerContainer}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8"
+        >
           {programs.map((prog) => {
             const ageMin = prog.ageMin || prog.ageFrom || 8;
             const ageMax = prog.ageMax || prog.ageTo || 18;
 
             return (
-              <div
+              <motion.div
                 key={prog.id}
-                className="rounded-3xl bg-[var(--card-bg)] border border-[var(--line)] p-5 sm:p-8 shadow-lg flex flex-col justify-between space-y-4 sm:space-y-6 relative overflow-hidden group hover:border-[var(--orange)]/60 transition-all"
+                variants={fadeInUp}
+                className="rounded-3xl bg-[var(--card-bg)] border border-[var(--line)] p-5 sm:p-8 shadow-lg flex flex-col justify-between space-y-4 sm:space-y-6 relative overflow-hidden group hover:border-[var(--orange)]/60 transition-all hover:shadow-xl"
               >
                 <div className="space-y-3 sm:space-y-4">
                   {/* Top Badges */}
@@ -106,10 +140,10 @@ export default function ProgramsSection() {
                     <Arrow className="w-4 h-4" />
                   </Button>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
 
       </div>
     </section>

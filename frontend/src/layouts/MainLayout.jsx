@@ -6,6 +6,7 @@ import Footer from './Footer';
 import OrbBackground from '../components/common/OrbBackground';
 import ScrollToTop from '../components/common/ScrollToTop';
 import ScrollToTopButton from '../components/ui/ScrollToTopButton';
+import WhatsAppFloatingButton from '../components/ui/WhatsAppFloatingButton';
 
 export default function MainLayout() {
   return (
@@ -17,7 +18,9 @@ export default function MainLayout() {
         <Outlet />
       </main>
       <Footer />
+      {/* Floating Action Buttons */}
       <ScrollToTopButton />
+      <WhatsAppFloatingButton />
       <Toaster position="top-center" richColors dir="rtl" />
     </div>
   );
