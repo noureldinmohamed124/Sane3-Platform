@@ -24,6 +24,10 @@ export const enrollmentSchema = z.object({
   parent: z.object({
     name: z.string().min(3, 'يرجى إدخال اسم ولي الأمر الثلاثي بالكامل'),
     phone: z.string().regex(/^01[0-2,5]\d{8}$/, 'رقم هاتف ولي الأمر يجب أن يتكون من 11 رقماً ويبدأ بـ 01'),
-    email: z.string().email('يرجى إدخال بريد إلكتروني صحيح لولي الأمر (مثال: name@domain.com)'),
+    email: z
+      .string()
+      .regex(/^$|^[^\s@]+@[^\s@]+\.[^\s@]+$/, 'يرجى إدخال بريد إلكتروني صحيح لولي الأمر (مثال: name@domain.com)')
+      .optional()
+      .default(''),
   }),
 });

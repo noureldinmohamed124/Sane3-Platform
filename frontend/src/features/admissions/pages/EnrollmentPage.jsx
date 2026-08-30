@@ -114,7 +114,7 @@ export default function EnrollmentPage() {
   const submitMutation = useSubmitEnrollmentMutation();
 
   const nextStep = async () => {
-    // Validate Step 1 fields
+    // Validate Step 1 required fields
     const fieldsToValidate = [
       'student.firstName',
       'student.lastName',
@@ -123,11 +123,17 @@ export default function EnrollmentPage() {
       'student.governorate',
       'parent.name',
       'parent.phone',
-      'parent.email',
     ];
 
-    if (watchStudentPhone) fieldsToValidate.push('student.studentPhone');
-    if (watchStudentEmail) fieldsToValidate.push('student.studentEmail');
+    if (watchParentEmail && watchParentEmail.trim().length > 0) {
+      fieldsToValidate.push('parent.email');
+    }
+    if (watchStudentPhone && watchStudentPhone.trim().length > 0) {
+      fieldsToValidate.push('student.studentPhone');
+    }
+    if (watchStudentEmail && watchStudentEmail.trim().length > 0) {
+      fieldsToValidate.push('student.studentEmail');
+    }
 
     const isValid = await trigger(fieldsToValidate);
     if (isValid) {
@@ -550,17 +556,17 @@ export default function EnrollmentPage() {
                     </div>
 
                     <div>
-                      <Label>{isEn ? 'Parent Email Address *' : 'البريد الإلكتروني لولي الأمر *'}</Label>
+                      <Label>{isEn ? 'Parent Email Address (Optional)' : 'البريد الإلكتروني لولي الأمر (اختياري)'}</Label>
                       <Input
                         type="email"
-                        placeholder="parent@example.com"
+                        placeholder={isEn ? 'parent@example.com (optional)' : 'أدخل البريد الإلكتروني (اختياري)'}
                         {...register('parent.email')}
                         onChange={(e) => {
                           setValue('parent.email', e.target.value, { shouldValidate: true });
-                          if (z.string().email().safeParse(e.target.value).success) clearErrors('parent.email');
+                          if (!e.target.value || z.string().email().safeParse(e.target.value).success) clearErrors('parent.email');
                         }}
                       />
-                      {renderEmailValidationBadge(watchParentEmail)}
+                      {watchParentEmail && renderEmailValidationBadge(watchParentEmail)}
                       {errors.parent?.email && (
                         <p className="text-xs text-red-500 font-semibold mt-1 flex items-center gap-1">
                           <AlertCircle className="w-3.5 h-3.5" /> {errors.parent.email.message}

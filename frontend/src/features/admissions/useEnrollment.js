@@ -12,7 +12,10 @@ export function useSubmitEnrollmentMutation() {
       }
 
       const parentPhone = payloadData.parent.phone.trim();
-      const parentEmail = payloadData.parent.email.trim();
+      const parentEmailInput = payloadData.parent.email?.trim();
+      
+      // If parent email was provided, use it. If left blank, generate unique contact email for backend DB requirements
+      const parentEmail = parentEmailInput || `parent_${parentPhone}_${Date.now()}@sane3.me`;
 
       // Student phone and email fallback to parent's if not entered by student
       const studentPhone = payloadData.student.studentPhone?.trim() || parentPhone;
